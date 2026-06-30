@@ -1,16 +1,17 @@
-# De Casteljau's Algorithm — Interactive Bézier Demo
+# De Casteljau / Bézier demo
 
-An interactive demo built for the **Computer Graphics** course (Splines lecture).
+Small demo I made for the Splines lecture to understand how Bézier curves
+actually get built.
 
-It builds a Bézier curve the way it was taught in class: by **repeated linear
-interpolation** (De Casteljau's algorithm). Drag the control points and move `t` —
-the colored scaffold shows the nested interpolations collapsing to a single point on
-the curve, so you can see *why* a Bézier curve is just nested lerps and why it always
-stays inside the convex hull of its control points.
+I kept getting confused by the Bernstein formula, so instead of just plotting
+the final curve I wanted to *see* the De Casteljau steps. You drag the control
+points and move the t slider, and the colored lines show the repeated linear
+interpolation: each level just slides t along the segments until there's one
+point left, which is the point on the curve.
 
-The side panel connects the geometric construction to the math: the Bernstein weights
-`Bᵢⁿ(t)` (which sum to 1 — partition of unity) and the basis-function plot.
+The thing that finally made it click for me is that every step is just a lerp
+between two points, so the curve can never leave the shape made by the control
+points (the convex hull). I added the Bernstein weight bars and the basis plot
+on the side to connect it back to the formula from the slides.
 
-**Live demo:** open `index.html`, or visit the GitHub Pages link.
-
-No dependencies — a single self-contained HTML file.
+Just open `index.html` in a browser, no install needed.

@@ -66,8 +66,8 @@
 
   <div class="panel">
     <h1>De Casteljau's Algorithm</h1>
-    <div class="sub">Building a Bézier curve as a series of <b>repeated linear interpolations</b>
-      between control points. Drag the dots. Move <kbd>t</kbd> to watch the construction.</div>
+    <div class="sub">A curve from the Splines lecture, built by <b>repeated linear interpolation</b>
+      between the control points. Drag the dots and move <kbd>t</kbd> to see how the curve point is found.</div>
 
     <div class="card">
       <h2>Parameter t</h2>
@@ -121,11 +121,11 @@
     </div>
 
     <div class="lecture">
-      <b>From the Splines lecture:</b> Bézier curves are based on Bernstein polynomials over a
-      control polygon. De Casteljau is the recursive scheme behind them — "successive linear
-      interpolation / repeated convex combination of control points." Because every step is a convex
-      combination, the curve stays inside the <b>convex hull</b>, touches only its <b>endpoints</b>,
-      and is <b>variation-diminishing</b> (it wiggles no more than the control polygon).
+      <b>My notes:</b> what helped me was realising De Casteljau is just lerps repeated.
+      Every intermediate point sits <i>between</i> two earlier points, so the curve can never
+      leave the shape of the control points (the convex hull). It also only touches P₀ and Pₙ,
+      and it never wiggles more than the control polygon does — which matches the properties
+      from the Splines slides.
     </div>
   </div>
 </div>
